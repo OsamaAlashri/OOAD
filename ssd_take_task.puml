@@ -1,0 +1,10 @@
+
+@startuml
+actor Employee
+participant TaskSystem
+
+Employee -> TaskSystem: Login()
+TaskSystem --> Employee: Success
+Employee -> TaskSystem: TakeTask(taskID)
+TaskSystem --> Employee: TaskAccepted
+@enduml

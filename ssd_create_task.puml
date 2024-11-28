@@ -1,0 +1,12 @@
+
+@startuml
+actor Manager
+participant TaskSystem
+
+Manager -> TaskSystem: Login()
+TaskSystem --> Manager: Success
+Manager -> TaskSystem: CreateTask(taskDetails)
+TaskSystem --> Manager: TaskCreated
+@enduml
+
+

@@ -1,0 +1,25 @@
+
+@startuml
+class TaskSystem {
++Login()
++Register()
++VerifyPassword()
++DisplayError()
++CreateTask()
++TakeTask()
++CheckProgress()
++Comment()
++ShowStatistics()
+}
+
+class Employee {
+    -TaskSystem
+}
+
+class Manager {
+    -TaskSystem
+}
+
+Employee "uses" -- TaskSystem
+Manager "uses" -- TaskSystem
+@enduml
