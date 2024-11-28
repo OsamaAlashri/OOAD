@@ -1,15 +1,17 @@
-
 @startuml
+package "Task Management System" as TMS {
 actor Employee
 actor Manager
 
-usecase "Login" as UC1
-usecase "Register" as UC2
-usecase "Create Task" as UC3
-usecase "Take Task" as UC4
-usecase "Check Progress" as UC5
-usecase "Comment" as UC6
-usecase "Show Statistics" as UC7
+
+    usecase "Login" as UC1
+    usecase "Register" as UC2
+    usecase "Create Task" as UC3
+    usecase "Take Task" as UC4
+    usecase "Check Progress" as UC5
+    usecase "Comment" as UC6
+    usecase "Show Statistics" as UC7
+}
 
 Employee --> UC1
 Employee --> UC4
@@ -20,4 +22,3 @@ Manager --> UC2
 Manager --> UC3
 Manager --> UC7
 @enduml
-
