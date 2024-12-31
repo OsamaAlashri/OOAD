@@ -1,25 +1,48 @@
-
 @startuml
-class TaskSystem {
-+Login()
-+Register()
-+VerifyPassword()
-+DisplayError()
-+CreateTask()
-+TakeTask()
-+CheckProgress()
-+Comment()
-+ShowStatistics()
+class User {
+    - id: Long
+    - username: String
+    - password: String
+    - email: String
+    + register(): void
+    + login(): boolean
 }
 
-class Employee {
-    -TaskSystem
+class Task {
+    - id: Long
+    - title: String
+    - description: String
+    - dueDate: Date
+    - status: TaskStatus
+    + create(): void
+    + update(): void
+    + delete(): void
 }
 
-class Manager {
-    -TaskSystem
+class TaskStatus {
+    <<enumeration>>
+    TO_DO
+    IN_PROGRESS
+    COMPLETED
 }
 
-Employee "uses" -- TaskSystem
-Manager "uses" -- TaskSystem
+class Project {
+    - id: Long
+    - name: String
+    - tasks: List<Task>
+    + addTask(task: Task): void
+    + removeTask(task: Task): void
+}
+
+class Notification {
+    - id: Long
+    - message: String
+    - user: User
+    + send(): void
+}
+
+User "1" -- "0..*" Task : "assigned to"
+Task "1" --> "1" TaskStatus
+Task "0..*" -- "1" Project : "belongs to"
+User "1" -- "0..*" Notification : "receives"
 @enduml
