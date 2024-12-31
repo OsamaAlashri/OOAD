@@ -1,12 +1,9 @@
-
 @startuml
-actor Manager
-participant TaskSystem
-
-Manager -> TaskSystem: Login()
-TaskSystem --> Manager: Success
-Manager -> TaskSystem: CreateTask(taskDetails)
-TaskSystem --> Manager: TaskCreated
+actor User
+User -> TaskManagerSystem: createTask(taskDetails)
+TaskManagerSystem -> TaskService: validate(taskDetails)
+TaskService --> TaskManagerSystem: validationResult
+TaskManagerSystem -> TaskRepository: save(task)
+TaskRepository --> TaskManagerSystem: savedTask
+TaskManagerSystem -> User: taskCreatedResponse
 @enduml
-
-
