@@ -1,0 +1,13 @@
+@startuml
+actor User
+participant "Task Controller" as TC
+participant "Task Service" as TS
+participant "Database" as DB
+
+User -> TC: Submit task details (title, description, priority)
+TC -> TS: Create task
+TS -> DB: Save task to database
+DB --> TS: Acknowledge save
+TS --> TC: Return success response
+TC --> User: Task created successfully
+@enduml
