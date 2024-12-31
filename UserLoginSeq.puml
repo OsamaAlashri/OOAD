@@ -1,0 +1,13 @@
+@startuml
+actor User
+participant "Login Controller" as LC
+participant "User Service" as US
+participant "Database" as DB
+
+User -> LC: Enter credentials
+LC -> US: Validate credentials
+US -> DB: Fetch user details
+DB --> US: Return user data
+US --> LC: Authentication result
+LC --> User: Success or failure message
+@enduml
