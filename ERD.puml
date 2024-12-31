@@ -1,38 +1,20 @@
 @startuml
 entity User {
-    + id: Long
-    + username: String
-    + password: String
-    + email: String
+    * id: Long
+    * name: String
+    * email: String
+    * password: String
 }
 
 entity Task {
-    + id: Long
-    + title: String
-    + description: String
-    + dueDate: Date
-    + status: TaskStatus
+    * id: Long
+    * title: String
+    * description: String
+    * dueDate: LocalDate
+    * priority: String
+    * status: String
+    * user_id: Long
 }
 
-entity TaskStatus {
-    <<enumeration>>
-    TO_DO
-    IN_PROGRESS
-    COMPLETED
-}
-
-entity Project {
-    + id: Long
-    + name: String
-}
-
-entity Notification {
-    + id: Long
-    + message: String
-}
-
-User ||--o{ Task : "assigned to"
-Task ||--|| TaskStatus
-Project ||--o{ Task : "has"
-User ||--o{ Notification : "receives"
+User ||--o{ Task
 @enduml
