@@ -1,0 +1,47 @@
+Software Design Document
+1. Introduction
+1.1 Purpose of the system
+The Task Management System is designed to help users organize, prioritize, and track tasks effectively. It enables task creation, modification, prioritization, and completion tracking, promoting efficient task management.
+1.2 Design goals
+Key design goals include:
+1. Scalability for managing numerous tasks.
+2. User-friendly interface for ease of use.
+3. Secure authentication and role-based access control.
+2. High-level software architecture
+2.1 Subsystem decomposition
+The system is divided into three primary subsystems:
+1. User Management Subsystem
+2. Task Management Subsystem
+3. Persistence Layer Subsystem
+2.2 Hardware/software mapping
+The system is hosted on a cloud-based infrastructure using a Java Spring Boot backend, MySQL database, and React-based frontend.
+2.3 Persistent data management
+Data is managed using the JPA ORM framework with MySQL. Hibernate facilitates the mapping of Java objects to relational database tables.
+2.4 Access control and security
+Access is controlled using Spring Security, implementing role-based access control and encrypted user credentials.
+2.5 Boundary conditions
+The system handles errors such as invalid user inputs, unauthorized access attempts, and database connection failures.
+3. Low-level design
+3.1 Object design trade-offs
+Trade-offs include balancing flexibility with complexity in the Task entity to allow prioritization without overcomplication.
+3.2 Final object design
+The final object design incorporates task prioritization and secure user authentication.
+3.3 Packages
+Packages include:
+1. com.example.taskmanager.controllers
+2. com.example.taskmanager.services
+3. com.example.taskmanager.models
+3.4 Class Interfaces
+Key class interfaces include Task, User, and AuthenticationService.
+3.5 Design Patterns
+The system uses the MVC pattern for separating concerns and the Singleton pattern for configuration management.
+4. Improvement summary (iteration 2 only)
+In the second iteration, the following improvements were made:
+1. Added task prioritization functionality.
+2. Developed UI mockups using Figma.
+UML Class Diagram
+Refer to the attached UML Class Diagram for detailed object relationships.
+Interaction Diagrams
+Sequence diagrams for user login and task management are included.
+Persistence Layer Design
+The Entity-Relationship Diagram (ERD) and description of the persistence strategy are included.
